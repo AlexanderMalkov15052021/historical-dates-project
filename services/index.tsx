@@ -1,0 +1,1 @@
+export { setCircleIndex } from './CircleService';

@@ -3,13 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"npm run next_dev\" \"npm run server\"",
+    "next_dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server": "npx json-server -w db.json --port 5000"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.3",
     "@reduxjs/toolkit": "^2.2.1",
+    "json-server": "^1.0.0-alpha.23",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
@@ -24,6 +28,7 @@
     "@types/react-dom": "^18",
     "@types/react-redux": "^7.1.33",
     "@types/react-transition-group": "^4.4.10",
+    "concurrently": "^8.2.2",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "typescript": "^5"

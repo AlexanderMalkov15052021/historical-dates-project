@@ -1,0 +1,17 @@
+.mainTitle {
+    width: 20vw;
+    height: 12vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #336;
+    padding-left: 80px;
+    display: flex;
+    align-items: center;
+    font-size: 60px;
+    font-weight: 700;
+
+    border-left: solid;
+    border-width: 7px;
+    border-image: linear-gradient(#69f, #f69) 1;
+}

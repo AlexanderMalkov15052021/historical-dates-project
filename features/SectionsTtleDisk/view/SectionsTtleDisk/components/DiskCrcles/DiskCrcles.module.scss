@@ -1,0 +1,13 @@
+.mainCircleWrapper {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+}
+
+.mainCircle {
+    position: absolute;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    z-index: -1;
+}

@@ -1,0 +1,1 @@
+export { SectionsTtleDisk } from './SectionsTtleDisk/view/SectionsTtleDisk/SectionsTtleDisk';
