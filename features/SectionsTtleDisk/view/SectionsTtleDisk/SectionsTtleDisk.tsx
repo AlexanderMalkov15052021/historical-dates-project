@@ -1,12 +1,12 @@
 import styles from './SectionsTtleDisk.module.scss';
 import { MainTitle } from './components/MainTitle/MainTitle';
 import { DiskCrcles } from './components/DiskCrcles/DiskCrcles';
-import { DiskTypes, Preloader, finalColor, getFieldMaxValue, preloaderSize, startColor } from 'shared';
-import { PropsDataWrapper } from '../../hoc/PropsDataWrapper/PropsDataWrapper';
+import { DiskTypes, Preloader, finalColor, preloaderSize, startColor } from 'shared';
 import { ErrorComponent } from './components/ErrorComponent/ErrorComponent';
-import { AnimatedNumbers, ControlBlock } from 'features';
+import { AnimatedNumbers } from './components/AnimatedNumbers/AnimatedNumbers';
+import { ControlBlock } from './components/ControlBlock/ControlBlock';
 
-export const SectionsTtleDisk = PropsDataWrapper((props: DiskTypes) => {
+export const SectionsTtleDisk = (props: DiskTypes) => {
 
     return (
         <div className={styles.mainContainer}>
@@ -71,4 +71,4 @@ export const SectionsTtleDisk = PropsDataWrapper((props: DiskTypes) => {
             </div>
         </div>
     )
-});
+}
