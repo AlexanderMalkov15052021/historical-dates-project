@@ -1,10 +1,12 @@
+@import "styles/globals";
+
 .mainTitle {
     width: 20vw;
     height: 12vh;
     position: absolute;
     left: 0;
     top: 0;
-    color: #336;
+    color: $baseColor;
     padding-left: 80px;
     display: flex;
     align-items: center;
@@ -13,5 +15,5 @@
 
     border-left: solid;
     border-width: 7px;
-    border-image: linear-gradient(#69f, #f69) 1;
+    border-image: linear-gradient($startColor, $finalColor) 1;
 }

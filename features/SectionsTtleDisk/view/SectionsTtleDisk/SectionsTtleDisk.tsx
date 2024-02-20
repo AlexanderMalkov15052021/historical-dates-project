@@ -1,23 +1,12 @@
 import styles from './SectionsTtleDisk.module.scss';
 import { MainTitle } from './components/MainTitle/MainTitle';
 import { DiskCrcles } from './components/DiskCrcles/DiskCrcles';
-import { Dates, Preloader, screenWidth } from 'shared';
+import { DiskTypes, Preloader, finalColor, getFieldMaxValue, preloaderSize, startColor } from 'shared';
 import { PropsDataWrapper } from '../../hoc/PropsDataWrapper/PropsDataWrapper';
-import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
-import { SerializedError } from '@reduxjs/toolkit';
 import { ErrorComponent } from './components/ErrorComponent/ErrorComponent';
+import { AnimatedNumbers } from 'features/AnimatedNumbers/AnimatedNumbers';
 
-type Props = {
-    data: Dates[] | undefined;
-    width: number;
-    isScreen: boolean;
-    isLoading: boolean;
-    circleIndex: number;
-    error: FetchBaseQueryError | SerializedError | undefined;
-    circleClickHandler: (num: number) => () => void;
-}
-
-export const SectionsTtleDisk = PropsDataWrapper((props: Props) => {
+export const SectionsTtleDisk = PropsDataWrapper((props: DiskTypes) => {
 
     return (
         <div className={styles.mainContainer}>
@@ -30,9 +19,23 @@ export const SectionsTtleDisk = PropsDataWrapper((props: Props) => {
                         {
                             props.isLoading || props.error
                                 ? <div className={styles.mainContent}>
-                                    <Preloader size={.5} />
+                                    <Preloader size={preloaderSize} />
                                 </div>
                                 : <div className={styles.mainContent}>
+
+                                    <div className={styles.numbersContainer}>
+
+                                        <AnimatedNumbers
+                                            color={startColor}
+                                            count={props.minValue}
+                                        />
+
+                                        <AnimatedNumbers
+                                            color={finalColor}
+                                            count={props.maxValue}
+                                        />
+
+                                    </div>
 
                                     {props.isScreen
                                         ? <div

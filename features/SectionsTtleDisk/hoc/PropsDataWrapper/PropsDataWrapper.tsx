@@ -2,24 +2,12 @@ import { ComponentType } from "react";
 import { getCirclesData } from "../../store/SectionsTtleDisk";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
-import { Dates, screenWidth } from "shared";
+import { DiskTypes, getFieldMaxValue, getFieldMinValue, screenWidth } from "shared";
 import { setCircleIndex } from "services";
 import { useDispatch } from "react-redux";
 import { useWindowSize } from "hooks";
-import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-import { SerializedError } from "@reduxjs/toolkit";
 
-type Props = {
-    data: Dates[] | undefined;
-    width: number;
-    isScreen: boolean;
-    isLoading: boolean;
-    circleIndex: number;
-    error: FetchBaseQueryError | SerializedError | undefined;
-    circleClickHandler: (num: number) => () => void;
-}
-
-export const PropsDataWrapper = <P extends Props>(Component: ComponentType<P>) => (props: Props) => {
+export const PropsDataWrapper = <P extends DiskTypes>(Component: ComponentType<P>) => (props: DiskTypes) => {
     const circleIndex = useSelector((state: RootState) => state.circleState.index);
 
     const [width] = useWindowSize();
@@ -34,11 +22,16 @@ export const PropsDataWrapper = <P extends Props>(Component: ComponentType<P>) =
 
     const isScreen = width <= screenWidth;
 
-    const dataToSend: Props = {
+    const minValue = getFieldMinValue('date', data)?.date;
+    const maxValue = getFieldMaxValue('date', data)?.date;
+
+    const dataToSend: DiskTypes = {
         data,
         error,
         width,
         isScreen,
+        minValue,
+        maxValue,
         isLoading,
         circleIndex,
         circleClickHandler
