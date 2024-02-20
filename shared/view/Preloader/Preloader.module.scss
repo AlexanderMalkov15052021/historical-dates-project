@@ -1,0 +1,16 @@
+.svg {
+    animation-duration: 1s;
+    animation-name: rotAnim;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotAnim {
+    from {
+      transform: rotateZ(30);
+    }
+  
+    to {
+        transform: rotateZ(360deg);
+    }
+  }
