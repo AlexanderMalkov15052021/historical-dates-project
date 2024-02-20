@@ -1,6 +1,6 @@
 'use client';
 
-import { CarouselWrapper, SectionsTtleDisk } from "features";
+import { CarouselWrapper } from "features";
 
 export const CarouselPage = () => {
     //*▼*// раскоментируйте чтобы продублировать //*▼*//
