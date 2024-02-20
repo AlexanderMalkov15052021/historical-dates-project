@@ -6,6 +6,7 @@ import { DiskTypes, getFieldMaxValue, getFieldMinValue, screenWidth } from "shar
 import { setCircleIndex } from "services";
 import { useDispatch } from "react-redux";
 import { useWindowSize } from "hooks";
+import { circleIndexDecrement, circleIndexIncrement } from "services/CircleService";
 
 export const PropsDataWrapper = <P extends DiskTypes>(Component: ComponentType<P>) => (props: DiskTypes) => {
     const circleIndex = useSelector((state: RootState) => state.circleState.index);
@@ -20,21 +21,23 @@ export const PropsDataWrapper = <P extends DiskTypes>(Component: ComponentType<P
         dispatch(setCircleIndex(num - 1));
     }
 
+    const prevAngle = () => {
+        dispatch(circleIndexDecrement());
+    }
+
+    const nextAngle = () => {
+        dispatch(circleIndexIncrement());
+    }
+
     const isScreen = width <= screenWidth;
 
     const minValue = getFieldMinValue('date', data)?.date;
     const maxValue = getFieldMaxValue('date', data)?.date;
 
     const dataToSend: DiskTypes = {
-        data,
-        error,
-        width,
-        isScreen,
-        minValue,
-        maxValue,
-        isLoading,
-        circleIndex,
-        circleClickHandler
+        data, error, width, isScreen,
+        minValue, maxValue, isLoading, circleIndex,
+        prevAngle, nextAngle, circleClickHandler
     };
 
     return <Component {...dataToSend as P} />;

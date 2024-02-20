@@ -1,0 +1,57 @@
+.controlBlock {
+    width: 160px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 80px;
+    top: 80%;
+    gap: 30px;
+    font-size: 22px;
+}
+
+.btnsBlock {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.startBtn {
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #336;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.startBtn svg {
+    width: 20px;
+}
+
+.disabledBtn {
+    border: 1px solid #aaa;
+    cursor: not-allowed;
+}
+
+.disabledBtn svg {
+    fill: #aaa;
+}
+
+@media (max-width: 800px) {
+    .controlBlock {
+        top: auto;
+        bottom: -40%;
+        left: 40px;
+        z-index: 2;
+    }
+
+    .startBtn {
+        width: 50px;
+        height: 50px;
+    }
+
+    .btnsBlock {
+        width: 120px;
+    }
+}

@@ -4,7 +4,7 @@ import { DiskCrcles } from './components/DiskCrcles/DiskCrcles';
 import { DiskTypes, Preloader, finalColor, getFieldMaxValue, preloaderSize, startColor } from 'shared';
 import { PropsDataWrapper } from '../../hoc/PropsDataWrapper/PropsDataWrapper';
 import { ErrorComponent } from './components/ErrorComponent/ErrorComponent';
-import { AnimatedNumbers } from 'features/AnimatedNumbers/AnimatedNumbers';
+import { AnimatedNumbers, ControlBlock } from 'features';
 
 export const SectionsTtleDisk = PropsDataWrapper((props: DiskTypes) => {
 
@@ -50,6 +50,13 @@ export const SectionsTtleDisk = PropsDataWrapper((props: DiskTypes) => {
                                             circleClickHandler={props.circleClickHandler}
                                         />
                                     }
+
+                                    <ControlBlock
+                                        currentIndex={props.circleIndex}
+                                        prevAngle={props.prevAngle}
+                                        nextAngle={props.nextAngle}
+                                    />
+
                                 </div>
                         }
 

@@ -11,5 +11,7 @@ export type DiskTypes = {
     isLoading: boolean;
     circleIndex: number;
     error: FetchBaseQueryError | SerializedError | undefined;
+    prevAngle: () => void,
+    nextAngle: () => void,
     circleClickHandler: (num: number) => () => void;
 }
