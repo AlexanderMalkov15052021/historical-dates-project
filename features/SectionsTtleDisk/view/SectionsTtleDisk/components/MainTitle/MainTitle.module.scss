@@ -17,3 +17,27 @@
     border-width: 7px;
     border-image: linear-gradient($startColor, $finalColor) 1;
 }
+
+@media (max-width: 1600px) {
+    .mainTitle {
+        font-size: 40px;
+        padding-left: 50px;
+    }
+}
+
+@media (max-width: 800px) {
+    .mainTitle {
+        padding-left: 40px;
+        font-size: 40px;
+        font-weight: 600;
+        border-left: none;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .mainTitle {
+        font-size: 30px;
+        padding-left: 25px;
+    }
+}

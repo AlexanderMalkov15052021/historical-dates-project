@@ -34,8 +34,8 @@
     cursor: not-allowed;
 }
 
-.disabledBtn svg {
-    fill: #aaa;
+.disabledBtn img {
+    opacity: .5;
 }
 
 @media (max-width: 800px) {

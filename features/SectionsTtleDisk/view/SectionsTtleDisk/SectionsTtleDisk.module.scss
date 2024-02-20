@@ -68,3 +68,47 @@
     display: flex;
     gap: 30px;
 }
+
+
+.dataTitle {
+    position: absolute;
+    font-size: 30px;
+    color: #336;
+    top: 33vh;
+    left: 40px;
+    pointer-events: none;
+}
+
+
+.dataTitle::after {
+    width: calc(100vw - 80px);
+    margin-top: 20px;
+    opacity: .5;
+    border: 1px solid #aaa;
+    display: block;
+    content: '';
+}
+
+
+
+
+@media (max-width: 800px) {
+    .mainBorder {
+        border-right: none;
+        border-left: none;
+        margin: 0;
+    }
+
+    .circleContainer {
+        width: 100%;
+        height: 50%;
+    }
+
+    .mainBorder::after {
+        background-color: transparent;
+    }
+
+    .mainBorder::before {
+        background-color: transparent;
+    }
+}

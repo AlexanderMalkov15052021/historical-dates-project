@@ -18,6 +18,7 @@ const SwiperCarouselLocal = SwiperCarouselData((props: SwiperCarouselType) => {
         <div className={styles.sliderContainer}>
             <div className={styles.mainContent}>
                 <div className={styles.swiperWrapper}>
+
                     <SwitchTransition>
                         <CSSTransition
                             nodeRef={props.nodeRef}
@@ -63,7 +64,6 @@ const SwiperCarouselLocal = SwiperCarouselData((props: SwiperCarouselType) => {
                                     onSlideChange={props.slideChangeHandler}
                                     className={styles.swiperBlock}
                                 >
-
                                     {
                                         props.dates?.map(obj => <SwiperSlide key={obj.id}>
                                             <SlideBlock
@@ -73,7 +73,6 @@ const SwiperCarouselLocal = SwiperCarouselData((props: SwiperCarouselType) => {
                                             />
                                         </SwiperSlide>)
                                     }
-
                                 </Swiper>
 
                                 {
@@ -89,13 +88,13 @@ const SwiperCarouselLocal = SwiperCarouselData((props: SwiperCarouselType) => {
                                     </div>
 
                                 }
-
                             </div>
+
                         </CSSTransition>
 
                     </SwitchTransition>
-
                 </div>
+
             </div>
         </div>
     )
