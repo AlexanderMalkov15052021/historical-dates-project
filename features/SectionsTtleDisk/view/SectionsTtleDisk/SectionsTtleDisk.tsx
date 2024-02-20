@@ -5,6 +5,7 @@ import { DiskTypes, Preloader, finalColor, preloaderSize, startColor } from 'sha
 import { ErrorComponent } from './components/ErrorComponent/ErrorComponent';
 import { AnimatedNumbers } from './components/AnimatedNumbers/AnimatedNumbers';
 import { ControlBlock } from './components/ControlBlock/ControlBlock';
+import { SwiperCarousel } from 'features';
 
 export const SectionsTtleDisk = (props: DiskTypes) => {
 
@@ -55,6 +56,12 @@ export const SectionsTtleDisk = (props: DiskTypes) => {
                                         currentIndex={props.circleIndex}
                                         prevAngle={props.prevAngle}
                                         nextAngle={props.nextAngle}
+                                    />
+
+                                    <SwiperCarousel
+                                        width={props.width}
+                                        dates={props.data}
+                                        currentIndex={props.circleIndex}
                                     />
 
                                 </div>

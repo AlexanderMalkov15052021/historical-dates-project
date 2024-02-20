@@ -7,7 +7,7 @@ export const CarouselPage = () => {
     return (
         <div>
             <CarouselWrapper />
-            <CarouselWrapper />
+            {/* <CarouselWrapper /> */}
         </div>
     )
 }

@@ -13,7 +13,7 @@ export const CarouselWrapper = () => {
 
     const circleClickHandler = (num: number) => () => setCircleIndex(num - 1);
 
-    const prevAngle = () => setCircleIndex(state => state--);
+    const prevAngle = () => setCircleIndex(state => --state);
 
     const nextAngle = () => setCircleIndex(state => ++state);
 
