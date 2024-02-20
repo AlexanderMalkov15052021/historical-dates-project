@@ -1,27 +1,23 @@
 import styles from './SectionsTtleDisk.module.scss';
 import { MainTitle } from './components/MainTitle/MainTitle';
-import { useWindowSize } from 'hooks';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { setCircleIndex } from 'services';
-import { RootState } from 'store';
 import { DiskCrcles } from './components/DiskCrcles/DiskCrcles';
-import { getCirclesData } from '../../store/SectionsTtleDisk';
-import { screenWidth } from 'shared';
+import { Dates, Preloader, screenWidth } from 'shared';
+import { PropsDataWrapper } from '../../hoc/PropsDataWrapper/PropsDataWrapper';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
+import { SerializedError } from '@reduxjs/toolkit';
+import { ErrorComponent } from './components/ErrorComponent/ErrorComponent';
 
+type Props = {
+    data: Dates[] | undefined;
+    width: number;
+    isScreen: boolean;
+    isLoading: boolean;
+    circleIndex: number;
+    error: FetchBaseQueryError | SerializedError | undefined;
+    circleClickHandler: (num: number) => () => void;
+}
 
-export const SectionsTtleDisk = () => {
-    const circleIndex = useSelector((state: RootState) => state.circleState.index);
-
-    const dispatch = useDispatch();
-
-    const [width] = useWindowSize();
-
-    const { data: dates, error, isLoading } = getCirclesData(circleIndex);
-
-    const circleClickHandler = (num: number) => () => {
-        dispatch(setCircleIndex(num - 1));
-    }
+export const SectionsTtleDisk = PropsDataWrapper((props: Props) => {
 
     return (
         <div className={styles.mainContainer}>
@@ -31,27 +27,38 @@ export const SectionsTtleDisk = () => {
 
                         <MainTitle />
 
-                        <div className={styles.mainContent}>
-
-                            {width <= screenWidth
-                                ? <div
-                                    className={styles.dataTitle}
-                                >
-                                    {dates?.at(0)?.title}
+                        {
+                            props.isLoading || props.error
+                                ? <div className={styles.mainContent}>
+                                    <Preloader size={.5} />
                                 </div>
-                                : <DiskCrcles
-                                    width={width}
-                                    title={dates?.at(0)?.title}
-                                    currentIndex={circleIndex}
-                                    circleClickHandler={circleClickHandler}
-                                />
-                            }
+                                : <div className={styles.mainContent}>
 
-                        </div>
+                                    {props.isScreen
+                                        ? <div
+                                            className={styles.dataTitle}
+                                        >
+                                            {props.data?.at(0)?.title}
+                                        </div>
+                                        : <DiskCrcles
+                                            width={props.width}
+                                            title={props.data?.at(0)?.title}
+                                            currentIndex={props.circleIndex}
+                                            circleClickHandler={props.circleClickHandler}
+                                        />
+                                    }
+                                </div>
+                        }
+
+                        {
+                            props.error
+                                ? <ErrorComponent />
+                                : ''
+                        }
 
                     </div>
                 </div>
             </div>
         </div>
     )
-}
+});
