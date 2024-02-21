@@ -158,3 +158,22 @@
         bottom: -55vh;
     }
 }
+
+@media (max-height: 800px) {
+
+    .sliderContainer {
+        bottom: -110%;
+    }
+
+    .swiperBlock {
+        :global(.swiper-pagination) {
+            top: 200px;
+        }
+    }
+
+    .swiperContent {
+        :global(.swiper-initialized) {
+            height: 280px;
+        }
+    }
+}

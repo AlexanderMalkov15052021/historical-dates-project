@@ -16,6 +16,7 @@
     border-left: solid;
     border-width: 7px;
     border-image: linear-gradient($startColor, $finalColor) 1;
+    transition: .3s;
 }
 
 @media (max-width: 1600px) {
@@ -39,5 +40,11 @@
     .mainTitle {
         font-size: 30px;
         padding-left: 25px;
+    }
+}
+
+@media (max-height: 800px) {
+    .mainTitle {
+        width: 90%;
     }
 }
