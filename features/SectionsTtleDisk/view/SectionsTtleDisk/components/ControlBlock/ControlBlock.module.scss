@@ -4,20 +4,20 @@
     display: flex;
     flex-direction: column;
     left: 80px;
-    top: 80%;
+    top: 75%;
     gap: 30px;
     font-size: 22px;
 }
 
 .btnsBlock {
-    width: 160px;
+    width: 140px;
     display: flex;
     justify-content: space-between;
 }
 
 .startBtn {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     background-color: #fff;
     border-radius: 4px;
     border: 1px solid #336;
@@ -40,18 +40,20 @@
 
 @media (max-width: 800px) {
     .controlBlock {
+        width: 100px;
         top: auto;
-        bottom: -40%;
+        bottom: -76%;
         left: 40px;
         z-index: 2;
+        gap: 10px;
     }
 
     .startBtn {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
     }
 
     .btnsBlock {
-        width: 120px;
+        width: 100px;
     }
 }

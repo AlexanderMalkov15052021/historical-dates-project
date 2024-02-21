@@ -79,7 +79,6 @@
     pointer-events: none;
 }
 
-
 .dataTitle::after {
     width: calc(100vw - 80px);
     margin-top: 20px;
@@ -89,14 +88,12 @@
     content: '';
 }
 
-
-
-
 @media (max-width: 800px) {
     .mainBorder {
         border-right: none;
         border-left: none;
         margin: 0;
+        align-items: baseline;
     }
 
     .circleContainer {
