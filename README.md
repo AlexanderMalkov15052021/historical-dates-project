@@ -11,4 +11,4 @@ Node.js v20.10.0
 4. npm start
 5. http://localhost:3000
 
-Задиплоеный проект: http://x90590af.beget.tech/test_tasks/historical-dates/
+Задеплоеный проект: http://x90590af.beget.tech/test_tasks/historical-dates/
