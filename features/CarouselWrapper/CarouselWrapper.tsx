@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { DiskTypes, getFieldMaxValue, getFieldMinValue, screenWidth } from "shared";
+import { Dates, DiskTypes, getFieldMaxValue, getFieldMinValue, screenWidth } from "shared";
 import { useWindowSize } from "hooks";
 import { getCirclesData } from "./store/SectionsTtleDisk";
 import { SectionsTtleDisk } from "..";
 
-export const CarouselWrapper = () => {
+export const CarouselWrapper = (props: Dates[]) => {
     const [circleIndex, setCircleIndex] = useState<number>(0);
 
     const [width] = useWindowSize();
 
     const { data, error, isLoading } = getCirclesData(circleIndex);
+
+    const currentDayes = data ? data : props;
 
     const circleClickHandler = (num: number) => () => setCircleIndex(num - 1);
 
@@ -24,7 +26,7 @@ export const CarouselWrapper = () => {
     const maxValue = getFieldMaxValue('date', data)?.date;
 
     const dataToSend: DiskTypes = {
-        data, error, width, isScreen,
+        data: currentDayes, error, width, isScreen,
         minValue, maxValue, isLoading, circleIndex,
         prevAngle, nextAngle, circleClickHandler
     };

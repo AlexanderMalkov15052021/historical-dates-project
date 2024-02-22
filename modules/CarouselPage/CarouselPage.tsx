@@ -1,13 +1,14 @@
 'use client';
 
+import { Dates } from "@/shared";
 import { CarouselWrapper } from "features";
 
-export const CarouselPage = () => {
+export const CarouselPage = (props: Dates[]) => {
     //*▼*// раскоментируйте чтобы продублировать //*▼*//
     return (
         <div>
-            <CarouselWrapper />
-            {/* <CarouselWrapper /> */}
+            <CarouselWrapper {...props} />
+            {/* <CarouselWrapper {...props} /> */}
         </div>
     )
 }
