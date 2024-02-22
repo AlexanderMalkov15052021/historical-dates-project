@@ -159,7 +159,7 @@
     }
 }
 
-@media (max-height: 800px) {
+@media (max-height: 800px) and (max-width: 800px) {
 
     .sliderContainer {
         bottom: -110%;
@@ -176,4 +176,12 @@
             height: 280px;
         }
     }
+}
+
+@media (max-height: 800px) and (min-width: 800px) {
+
+    .sliderContainer {
+        bottom: -100%;
+    }
+
 }

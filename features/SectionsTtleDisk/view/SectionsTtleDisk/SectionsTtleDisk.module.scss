@@ -1,6 +1,7 @@
 .mainContainer {
     width: 100vw;
     height: 100vh;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
 }
@@ -100,7 +101,6 @@
 
     .circleContainer {
         width: 100%;
-        height: 50%;
     }
 
     .mainBorder::after {
@@ -112,10 +112,13 @@
     }
 }
 
-@media (max-height: 800px) {
+@media (max-height: 800px) and (max-width: 800px) {
+    .circleContainer {
+        height: 250px;
+    }
+
     .mainContent {
         height: 400px;
-        margin-top: 60px;
     }
 
     .dataTitle {
@@ -124,5 +127,19 @@
 
     .circleContainer {
         margin-top: 5vw;
+    }
+}
+
+@media (max-height: 800px) and (min-width: 800px) {
+    .circleContainer {
+        height: 250px;
+    }
+
+    .mainContent {
+        height: 400px;
+    }
+
+    .dataTitle {
+        top: 65%;
     }
 }

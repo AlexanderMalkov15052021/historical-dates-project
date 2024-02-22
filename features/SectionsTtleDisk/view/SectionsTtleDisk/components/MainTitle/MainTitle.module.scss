@@ -2,7 +2,7 @@
 
 .mainTitle {
     width: 20vw;
-    height: 12vh;
+    height: auto;
     position: absolute;
     left: 0;
     top: 0;
@@ -43,7 +43,7 @@
     }
 }
 
-@media (max-height: 800px) {
+@media (max-height: 800px) and (max-width: 800px)  {
     .mainTitle {
         width: 90%;
     }
