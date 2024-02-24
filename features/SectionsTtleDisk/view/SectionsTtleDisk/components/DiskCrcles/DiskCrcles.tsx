@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import styles from './DiskCrcles.module.scss';
 import { AnimatedCircle } from '../AnimatedCircle/AnimatedCircle';

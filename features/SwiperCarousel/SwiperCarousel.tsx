@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './SwiperCarousel.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';

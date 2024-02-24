@@ -1,10 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { dateAPI } from "services/DateService";
+import { createWrapper } from "next-redux-wrapper";
 import circleStateSlice from 'services/CircleService'
+import datesStateSlice from "services/SetDateService";
 
 const rootReducer = combineReducers({
     [dateAPI.reducerPath]: dateAPI.reducer,
-    circleState: circleStateSlice
+    circleState: circleStateSlice,
+    datesState: datesStateSlice,
 });
 
 export const setupStore = () => {
@@ -14,6 +17,8 @@ export const setupStore = () => {
             getDefaultMiddleware().concat(dateAPI.middleware)
     })
 }
+
+export const wrapper = createWrapper(setupStore);
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;

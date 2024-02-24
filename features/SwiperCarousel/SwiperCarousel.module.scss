@@ -133,7 +133,7 @@
 }
 
 .swiperBlock {
-    :global(.swiper-pagination) {
+    :global(div.swiper-pagination) {
         position: absolute;
         top: 30vh;
     }

@@ -4,8 +4,8 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 
 export const dateAPI = createApi({
     reducerPath: 'api',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
-    tagTypes: ['Date'],
+    baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_DOMAIN }),
+    tagTypes: ['Dates'],
     endpoints: (build) => ({
         fetchAllDates: build.query<Dates[], { currentIndex: number }>({
             query: ({ currentIndex }) => {
@@ -20,7 +20,7 @@ export const dateAPI = createApi({
                     }
                 }
             },
-            providesTags: result => ['Date']
+            providesTags: result => ['Dates']
         }),
     })
 });

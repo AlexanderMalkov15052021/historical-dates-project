@@ -1,3 +1,5 @@
+'use client';
+
 import { ComponentType, useEffect, useRef, useState } from "react";
 import { Dates, SwiperCarouselType, minDescriptionWidth, minDescriptionWidthForMobile, screenWidth, SwiperWrapperType } from "shared";
 import { Swiper as SwiperType } from 'swiper';

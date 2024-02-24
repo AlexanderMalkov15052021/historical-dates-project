@@ -1,3 +1,5 @@
+'use client';
+
 import { animated, SpringValue } from '@react-spring/web';
 import styles from './AnimatedCircle.module.scss';
 

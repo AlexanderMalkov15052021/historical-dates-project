@@ -5,6 +5,8 @@ import { Dates } from "./Dates";
 export type DiskTypes = {
     data: Dates[] | undefined;
     width: number;
+    isVisiblePreloader: string;
+    isVisibleContent: string;
     minValue: number;
     maxValue: number;
     isScreen: boolean;

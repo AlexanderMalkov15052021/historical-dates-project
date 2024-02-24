@@ -17,55 +17,59 @@ export const SectionsTtleDisk = (props: DiskTypes) => {
 
                         <MainTitle />
 
-                        {
-                            props.isLoading || props.error
-                                ? <div className={styles.mainContent}>
-                                    <Preloader size={preloaderSize} />
+                        <div
+                            style={{ display: props.isVisiblePreloader }}
+                            className={styles.mainContent}
+                        >
+                            <Preloader size={preloaderSize} />
+                        </div>
+
+                        <div
+                            style={{ display: props.isVisibleContent }}
+                            className={styles.mainContent}
+                        >
+
+                            <div className={styles.numbersContainer}>
+
+                                <AnimatedNumbers
+                                    color={startColor}
+                                    count={props.minValue}
+                                />
+
+                                <AnimatedNumbers
+                                    color={finalColor}
+                                    count={props.maxValue}
+                                />
+
+                            </div>
+
+                            {props.isScreen
+                                ? <div
+                                    className={styles.dataTitle}
+                                >
+                                    {props.data?.at(0)?.title}
                                 </div>
-                                : <div className={styles.mainContent}>
+                                : <DiskCrcles
+                                    width={props.width}
+                                    title={props.data?.at(0)?.title}
+                                    currentIndex={props.circleIndex}
+                                    circleClickHandler={props.circleClickHandler}
+                                />
+                            }
 
-                                    <div className={styles.numbersContainer}>
+                            <ControlBlock
+                                currentIndex={props.circleIndex}
+                                prevAngle={props.prevAngle}
+                                nextAngle={props.nextAngle}
+                            />
 
-                                        <AnimatedNumbers
-                                            color={startColor}
-                                            count={props.minValue}
-                                        />
+                            <SwiperCarousel
+                                width={props.width}
+                                dates={props.data}
+                                currentIndex={props.circleIndex}
+                            />
 
-                                        <AnimatedNumbers
-                                            color={finalColor}
-                                            count={props.maxValue}
-                                        />
-
-                                    </div>
-
-                                    {props.isScreen
-                                        ? <div
-                                            className={styles.dataTitle}
-                                        >
-                                            {props.data?.at(0)?.title}
-                                        </div>
-                                        : <DiskCrcles
-                                            width={props.width}
-                                            title={props.data?.at(0)?.title}
-                                            currentIndex={props.circleIndex}
-                                            circleClickHandler={props.circleClickHandler}
-                                        />
-                                    }
-
-                                    <ControlBlock
-                                        currentIndex={props.circleIndex}
-                                        prevAngle={props.prevAngle}
-                                        nextAngle={props.nextAngle}
-                                    />
-
-                                    <SwiperCarousel
-                                        width={props.width}
-                                        dates={props.data}
-                                        currentIndex={props.circleIndex}
-                                    />
-
-                                </div>
-                        }
+                        </div>
 
                         {
                             props.error

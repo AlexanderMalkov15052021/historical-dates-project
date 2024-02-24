@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './AnimatedNumbers.module.scss';
 import { useSpring, animated } from '@react-spring/web';
 

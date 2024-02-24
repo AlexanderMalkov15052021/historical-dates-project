@@ -1,7 +1,7 @@
 import { CarouselPage } from "modules";
-import styles from "./page.module.scss";
+import styles from "../page.module.scss";
 import { Dates } from "shared";
-import { getHistoricalDates } from "./actions/getHistoricalDates";
+import { getHistoricalDates } from "../actions/getHistoricalDates";
 
 export default async function Home() {
 
@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <main className={styles.main}>
-      <CarouselPage {...dates} />
+      <CarouselPage dates={dates} />
     </main>
   );
 }
